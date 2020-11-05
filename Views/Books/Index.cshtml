@@ -1,0 +1,63 @@
+﻿@model IEnumerable<BookShop.Models.Books>
+
+@{
+    ViewBag.Title = "Книги";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Книги</h2>
+
+<p>
+    @Html.ActionLink("Добавить новую книгу", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataPrint)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgeCategory1.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Authors.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoverTypes.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genres.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataPrint)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgeCategory1.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Authors.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoverTypes.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genres.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

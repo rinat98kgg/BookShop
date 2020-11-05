@@ -1,0 +1,73 @@
+﻿@model BookShop.Models.Books
+
+@{
+    ViewBag.Title = "Удалить";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удалить</h2>
+
+<h3>Вы уверены, что хотите удалить это?</h3>
+<div>
+    <h4>Книги</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPrint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPrint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeCategory1.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeCategory1.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Authors.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Authors.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoverTypes.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoverTypes.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genres.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genres.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Назад к списку", "Index")
+        </div>
+    }
+</div>
